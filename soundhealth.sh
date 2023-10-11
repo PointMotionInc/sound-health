@@ -149,23 +149,23 @@ case "$command" in
     echo -e "${Yellow}Running frontend clients.${NC}"
     cd $BASE_DIR/$src_folder/activity-experience
     npm i --legacy-peer-deps
-    npm run start:local-pure
+    npm run build:local-pure
     cd $BASE_DIR/$src_folder/activity-experience/dist/activities
-    http-server --port 4201 &
+    nohup http-server --port 4201 > logs.txt &
     echo $! >> ../../../../pids.txt
 
     cd $BASE_DIR/$src_folder/sh-player-client
     npm i --legacy-peer-deps
-    npm run start:local-pure
+    npm run build:local-pure
     cd ./dist/sh-player-client
-    http-server --port 4200 &
+    nohup http-server --port 4200 > logs.txt &
     echo $! >> ../../pids.txt
 
     cd $src_folder/sh-organization-client
     npm i --legacy-peer-deps
-    npm run start:local-pure
+    npm run build:local-pure
     cd $BASE_DIR/$src_folder/sh-organization-client/dist/sh-organization-client
-    http-server --port 4300 &
+    nohup http-server --port 4300 > logs.txt &
     echo $! >> ../../pids.txt
     
     
