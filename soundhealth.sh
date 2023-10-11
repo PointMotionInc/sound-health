@@ -108,15 +108,15 @@ case "$command" in
     ;;
   "clone")
     echo -e "${YELLOW}Cloning GitHub repositories with branch $git_branch${NC}"
-    git clone -b $git_branch https://github.com/iGnosis/pii-reverse-proxy.git $src_folder/pii-reverse-proxy
-    git clone -b $git_branch https://github.com/iGnosis/pii-graphql.git $src_folder/pii-graphql
-    git clone -b $git_branch https://github.com/iGnosis/sh-graphql.git $src_folder/sh-graphql
-    git clone -b $git_branch https://github.com/iGnosis/sh-application-server.git $src_folder/sh-application-server
+    git clone -b $git_branch git@github.com:iGnosis/pii-reverse-proxy.git $src_folder/pii-reverse-proxy
+    git clone -b $git_branch git@github.com:iGnosis/pii-graphql.git $src_folder/pii-graphql
+    git clone -b $git_branch git@github.com:iGnosis/sh-graphql.git $src_folder/sh-graphql
+    git clone -b $git_branch git@github.com:iGnosis/sh-application-server.git $src_folder/sh-application-server
     echo -e "${GREEN}[√] Cloned all backend repositories.${NC}"
 
-    git clone -b $git_branch https://github.com/iGnosis/sh-player-client.git $src_folder/sh-player-client
-    git clone -b $git_branch https://github.com/iGnosis/activity-experience.git $src_folder/activity-experience
-    git clone -b $git_branch https://github.com/iGnosis/sh-organization-client $src_folder/sh-organization-client
+    git clone -b $git_branch git@github.com:iGnosis/sh-player-client.git $src_folder/sh-player-client
+    git clone -b $git_branch git@github.com:iGnosis/activity-experience.git $src_folder/activity-experience
+    git clone -b $git_branch git@github.com:iGnosis/sh-organization-client.git $src_folder/sh-organization-client
     echo "${GREEN}[√] Cloned patient and provider repos.${NC}"
     ;;
   "start")
