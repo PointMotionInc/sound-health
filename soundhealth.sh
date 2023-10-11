@@ -151,28 +151,28 @@ case "$command" in
     npm i --legacy-peer-deps
     npm run build:local-pure
     cd $BASE_DIR/$src_folder/activity-experience/dist/activities
-    nohup http-server --port 4201 > logs.txt &
-    echo $! >> ../../../../pids.txt
+    nohup http-server $BASE_DIR/$src_folder/activity-experience/dist/activities --port 4201 > logs.txt &
+    echo $! >> $BASE_DIR/pids.txt
 
     cd $BASE_DIR/$src_folder/sh-player-client
     npm i --legacy-peer-deps
     npm run build:local-pure
     cd ./dist/sh-player-client
     nohup http-server --port 4200 > logs.txt &
-    echo $! >> ../../pids.txt
+    echo $! >> $BASE_DIR/pids.txt
 
-    cd $src_folder/sh-organization-client
+    cd $BASE_DIR/$src_folder/sh-organization-client
     npm i --legacy-peer-deps
     npm run build:local-pure
     cd $BASE_DIR/$src_folder/sh-organization-client/dist/sh-organization-client
     nohup http-server --port 4300 > logs.txt &
-    echo $! >> ../../pids.txt
+    echo $! >> $BASE_DIR/pids.txt
     
     
     cd $BASE_DIR
 
-    echo "Patient UI: http://localhost:4300/"
-    echo "Provider UI: http://localhost:4200/"
+    echo "Provider UI: http://localhost:4300/"
+    echo "Patient UI: http://localhost:4200/"
     ;;
   "stop")
     if [ ! -f "pids.txt" ]; then
